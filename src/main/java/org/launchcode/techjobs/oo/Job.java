@@ -4,7 +4,8 @@ import java.util.Objects;
 
 public class Job {
 
-    private int id;
+//    changed it from int to Integer?
+    private Integer id;
     private static int nextId = 1;
 
     private String name;
@@ -45,6 +46,35 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
+    }
+
+
+
+
+    @Override
+    public String toString() {
+
+        String message = "Data not available";
+
+        return String.format("\nID: %d\nName: %s\nEmployer: %s\nLocation: %s\nPosition Type: %s\nCore Competency: %s\n",
+                id == null ? message : id,
+                name == null || name.isEmpty() ? message : name,
+                employer == null || employer.getValue().isEmpty()  ? message : employer,
+                location == null ||location.getValue().isEmpty() ? message : location,
+                positionType == null || positionType.getValue().isEmpty() ? message : positionType,
+                coreCompetency == null || coreCompetency.getValue().isEmpty() ? message : coreCompetency);
+
+
+//        if (name.isEmpty() ){
+//            return "Data not available";
+//        }
+//        return
+//                "\nID: " + id  + ",\n" +
+//                "Name: '" + name + '\'' + ",\n" +
+//                "Employer: " + employer + ",\n" +
+//                "Location: " + location + ",\n" +
+//                "Position Type: " + positionType + ",\n" +
+//                "Core Competency: " + coreCompetency + ",\n";
     }
 
 
